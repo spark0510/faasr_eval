@@ -2,6 +2,7 @@ install_function <- function(){
   #readLines("~/.aws/credentials")
   #.libPaths("/tmp")
   #.libPaths()
+  print(.faasr$ComputeServers$My_AWS_Account$Token)
   Sys.getenv("AWS_SESSION_TOKEN")
   Sys.getenv("AWS_ACCESS_KEY_ID")
   Sys.getenv("AWS_DEFAULT_REGION")
