@@ -15,7 +15,7 @@ install_function <- function(){
             "AWS_DEFAULT_REGION" = "us-east-1")
   #readLines("~/.aws/credentials")
   #print(.faasr$ComputeServers$My_AWS_Account$AccessKey)
-  FaaSr::faasr_put_file
+  print(FaaSr::faasr_put_file)
   .libPaths( c( .libPaths(), "/tmp") )
   install.packages("rMR", lib="/tmp")
   library("rMR")
