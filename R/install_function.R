@@ -108,16 +108,27 @@ install_function <- function(){
           # AWS Lambda API handling
 	  # get next function server
           target_server <- faasr$ComputeServers[[next_server]]
-          print(target_server)
+          #print(target_server)
 	  # prepare env variables for lambda
-          Sys.setenv("AWS_ACCESS_KEY_ID"=target_server$AccessKey, "AWS_SECRET_ACCESS_KEY"=target_server$SecretKey, "AWS_DEFAULT_REGION"=target_server$Region, "AWS_SESSION_TOKEN" = "")
+          #Sys.setenv("AWS_ACCESS_KEY_ID"=target_server$AccessKey, "AWS_SECRET_ACCESS_KEY"=target_server$SecretKey, "AWS_DEFAULT_REGION"=target_server$Region, "AWS_SESSION_TOKEN" = "")
           
 	  # set invoke request body, it should be a JSON. To pass the payload, toJSON is required.
 	  payload_json <- toJSON(faasr, auto_unbox = TRUE)
 
 	  # Create a Lambda client using paws
-          lambda <- paws::lambda()
-          print(lambda$.internal$config$credentials$creds)
+          lambda<-paws::lambda(
+      config=list(
+	      credentials=list(
+	        creds=list(
+		        access_key_id=target_server$AccessKey,
+		        secret_access_key=target_server$SecretKey,
+			session_token=""
+		      )
+	      ),
+	    region=target_server$Region
+	  )
+    )
+          #print(lambda$.internal$config$credentials$creds)
 	  # Invoke next function with FunctionName and Payload, receive trigger response
           next_lambda_function_name <- invoke_next_function
 
