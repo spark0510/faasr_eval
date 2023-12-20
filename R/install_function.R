@@ -9,7 +9,7 @@ install_function <- function(){
   Sys.unsetenv("AWS_ACCESS_KEY_ID")
   Sys.unsetenv("AWS_SECRET_ACCESS_KEY")
   Sys.setenv(
-           "AWS_SESSION_TOKEN" = .faasr$ComputeServers$My_AWS_Account$SecretKey
+           "AWS_SESSION_TOKEN" = .faasr$ComputeServers$My_AWS_Account$SecretKey,
             "AWS_DEFAULT_REGION" = "us-east-1")
   #readLines("~/.aws/credentials")
   #print(.faasr$ComputeServers$My_AWS_Account$AccessKey)
