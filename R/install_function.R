@@ -12,7 +12,7 @@ install_function <- function(){
            "AWS_SECRET_ACCESS_KEY" = .faasr$ComputeServers$My_AWS_Account$SecretKey,
             "AWS_DEFAULT_REGION" = "us-east-1")
   #readLines("~/.aws/credentials")
-  print(.faasr$ComputeServers$My_AWS_Account$AccessKey)
+  #print(.faasr$ComputeServers$My_AWS_Account$AccessKey)
   #.libPaths( c( .libPaths(), "/tmp") )
   install.packages("rMR", lib="/tmp")
   rMR::Eq.Ox.conc
