@@ -2,8 +2,6 @@ install_function <- function(){
   #readLines("~/.aws/credentials")
   #.libPaths("/tmp")
   #.libPaths()
-  print(.faasr$ComputeServers$My_AWS_Account$Token)
-  print("token///////////////////////")
   Sys.getenv("AWS_SESSION_TOKEN")
   Sys.getenv("AWS_ACCESS_KEY_ID")
   Sys.getenv("AWS_DEFAULT_REGION")
@@ -21,5 +19,5 @@ install_function <- function(){
   install.packages("rMR", lib="/tmp")
   library("rMR")
   print("test here///////////////////////")
-  Eq.Ox.conc
+  FaaSr::faasr_put_file
   }
