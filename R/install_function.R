@@ -20,6 +20,6 @@ install_function <- function(){
   install.packages("rMR", lib="/tmp")
   library("rMR")
   print("test here///////////////////////")
-  FaaSr::faasr_put_file
+  print(FaaSr::faasr_put_file)
   print("end here/////////////////////////")
   }
