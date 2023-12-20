@@ -21,5 +21,5 @@ install_function <- function(){
   install.packages("rMR", lib="/tmp")
   library("rMR")
   print("test here///////////////////////")
-  rMR::Eq.Ox.conc
+  Eq.Ox.conc
   }
