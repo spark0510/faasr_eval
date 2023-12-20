@@ -215,7 +215,6 @@ install_function <- function(){
   }
 
   
-  FaaSr::faasr_trigger(.faasr)
   #.libPaths( c( .libPaths(), "/tmp") )
   #install.packages("rMR", lib="/tmp")
   #withr::with_libpaths(new="/tmp", devtools::install_github("eco4cast/neon4cast", force=TRUE))
