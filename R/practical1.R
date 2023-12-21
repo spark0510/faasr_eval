@@ -6,6 +6,7 @@ library(lubridate)
 library(rMR)
 library(glue)
 #source("ignore_sigpipe.R")
+install.packages("decor")
 library(decor)
 cpp11::cpp_source(code = '
   #include <csignal>
