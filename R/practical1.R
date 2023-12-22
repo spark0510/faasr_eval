@@ -1,6 +1,6 @@
 print("test")
 print(getwd())
-list.files()
+print(list.files())
 
 forecast_model <- function(folder, model_id){
   
