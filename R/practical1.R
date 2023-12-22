@@ -1,7 +1,3 @@
-print("test")
-print(getwd())
-print(list.files())
-
 forecast_model <- function(folder, model_id){
   
 library(tidyverse)
