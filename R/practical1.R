@@ -27,7 +27,7 @@ noaa_date <- Sys.Date() - days(3)  #Need to use yesterday's NOAA forecast becaus
 
 # Step 0: Define a unique name which will identify your model in the leaderboard and connect it to team members info, etc
 #model_id <- "neon4cast_example"
-print(11111------------------------------------------------------)
+print("11111------------------------------------------------------")
 # Step 1: Download latest target data and site description data
 target <- readr::read_csv(paste0("https://data.ecoforecast.org/neon4cast-targets/",
                                  "aquatics/aquatics-targets.csv.gz"), guess_max = 1e6)
@@ -35,10 +35,10 @@ site_data <- readr::read_csv(paste0("https://raw.githubusercontent.com/eco4cast/
                                     "main/NEON_Field_Site_Metadata_20220412.csv")) |> 
   dplyr::filter(aquatics == 1)
 
-print(22222------------------------------------------------------)
+print("22222------------------------------------------------------")
 # Step 2: Get meterological predictions as drivers
 df_past <- neon4cast::noaa_stage3()
-print(33333------------------------------------------------------)
+print("33333------------------------------------------------------")
 ## Helper function: for each site, average over predicted 0h horizon ensembles to get 'historic values'
 noaa_mean_historical <- function(df_past, site, var) {
   df_past |>
@@ -80,7 +80,7 @@ noaa_mean_forecast <- function(site, var, reference_date) {
 sites <- target |> na.omit() |> distinct(site_id, variable) |> 
   filter(variable %in% c("oxygen", "temperature")) |>
   count(site_id) |> filter(n==2) |> pull(site_id)
-print(44444------------------------------------------------------)
+print("44444------------------------------------------------------")
 
 #Step 3.0: Define the forecasts model for a site
 forecast_site <- function(site) {
@@ -147,13 +147,13 @@ forecast_site <- function(site) {
 
 ## Test with a single site first!
 forecast <- forecast_site( sites[1] )
-print(55555------------------------------------------------------)
+print("55555------------------------------------------------------")
 #Visualize the ensemble predictions -- what do you think?
 forecast |> 
   ggplot(aes(x = datetime, y = prediction, group = parameter)) +
   geom_line(alpha=0.3) +
   facet_wrap(~variable, scales = "free")
-print(66666------------------------------------------------------)
+print("66666------------------------------------------------------")
 
 # Run all sites -- may be slow!
 forecast <- map_dfr(sites, forecast_site)
