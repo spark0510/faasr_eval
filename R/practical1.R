@@ -1,4 +1,5 @@
 print("test")
+print(getwd())
 
 forecast_model <- function(folder, model_id){
   
