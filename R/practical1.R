@@ -1,3 +1,5 @@
+print("test")
+
 forecast_model <- function(folder, model_id){
   
 library(tidyverse)
