@@ -1,3 +1,3 @@
 null_function <- function(){
-  NULL
+  print(Sys.time())
 }
